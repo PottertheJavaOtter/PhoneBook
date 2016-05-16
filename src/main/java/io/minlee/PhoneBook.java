@@ -2,6 +2,7 @@ package io.minlee;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by minlee on 5/16/16.
@@ -16,6 +17,7 @@ public class PhoneBook {
 
     public void addEntry(String name, String phoneNumber) {
         phoneEntries.put(name,phoneNumber);
+
     }
 
     public String lookup(String name) {
@@ -24,5 +26,19 @@ public class PhoneBook {
 
     public void removeEntry(String name) {
         phoneEntries.remove(name);
+    }
+    public String listNumbers(){
+        String numbers = "";
+        for(String value : phoneEntries.values()){
+            numbers +=value+"\n";
+        }
+        return numbers;
+    }
+    public String listEntries(){
+        String entries = "";
+        for(Map.Entry<String,String> entry : phoneEntries.entrySet()){
+            entries += entry.getKey()+"\n" + entry.getValue()+"\n";
+        }
+        return entries;
     }
 }

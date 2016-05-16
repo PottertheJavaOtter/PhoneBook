@@ -38,7 +38,23 @@ public class PhoneBookSpec {
         phoneBook.removeEntry("Min");
         String actualNumber = phoneBook.lookup("Min");
         assertNull(actualNumber);
+
     }
+    @Test
+    public void listNumbersTest(){
+        phoneBook.addEntry("Joe","856-357-7412");
+        String expectedNumbers = "856-357-7412\n856-357-7458\n";
+        String actualNumbers = phoneBook.listNumbers();
+        assertEquals(expectedNumbers,actualNumbers);
+    }
+    @Test
+    public void listEntriesTest(){
+        phoneBook.addEntry("Joe","856-357-7412");
+        String expectedNumbers = "Joe\n856-357-7412\nMin\n856-357-7458\n";
+        String actualNumbers = phoneBook.listEntries();
+        assertEquals(expectedNumbers,actualNumbers);
+    }
+
 
 
 }
