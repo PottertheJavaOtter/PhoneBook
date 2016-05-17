@@ -41,4 +41,13 @@ public class PhoneBook {
         }
         return entries;
     }
+
+    public String reverseLookup(String number) {
+        for(Map.Entry<String,String> entry : phoneEntries.entrySet()){
+            if(entry.getValue() == number){
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
 }
